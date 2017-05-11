@@ -51,9 +51,9 @@ public class pruebaView extends View{
         // redecilla. tresbolillo=true;
         //redecilla.masa_fija(10);
         intensity=-1;
-        sistem=new cloud(context, 75);
+        sistem=new cloud(context, 80);
         sistem.isboxed(width, height);
-        sistem2=new cloud(context, 75);
+        sistem2=new cloud(context, 80);
         sistem2.isboxed(width, height);
         hole=new Atractor(1);
         lateral1=new Atractor(1);
