@@ -37,28 +37,29 @@ public class particulasimple extends puntocolor {
 
         if (eterna==false){a=lifespan;}
         if (a<0 || a>255){a=0;}
-        paint.setARGB(a, r, g, b);
+        //paint.setARGB(a, r, g, b);
+        paint.setARGB(a,0,0,0);
         paint.setStyle(Paint.Style.FILL);
         //paint.setStrokeWidth(10);
 
-        //paint.setAntiAlias(true);
+        paint.setAntiAlias(true);
         //paint.setStrokeWidth(masa*2);
        // canvas.drawPoint(posicion.x,posicion.y,paint);
-       // canvas.drawCircle(posicion.x,posicion.y,masa,paint);
+        canvas.drawCircle(posicion.x,posicion.y,masa,paint);
 
 
 
-        //limites.set(posicion.x, posicion.y, posicion.x + masa * 2, posicion.y + masa * 2);
+        //limites.set(posicion.x, posicion.y, posicion.x + masa , posicion.y + masa );
         //  canvas.drawOval(limites, paint);
 
 
 
-        canvas.save();
-        canvas.translate(posicion.x, posicion.y);
-        canvas.rotate(head, 0, 0);
-        limites.set(0, 0, masa * 3, masa*2);
-        canvas.drawRect(limites, paint);
-        canvas.restore();
+        //canvas.save();
+        //canvas.translate(posicion.x, posicion.y);
+        //canvas.rotate(head, 0, 0);
+        //limites.set(0, 0, masa * 3, masa*2);
+        //canvas.drawRect(limites, paint);
+       // canvas.restore();
 
     }
 

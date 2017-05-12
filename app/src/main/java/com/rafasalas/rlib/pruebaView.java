@@ -51,10 +51,10 @@ public class pruebaView extends View{
         // redecilla. tresbolillo=true;
         //redecilla.masa_fija(10);
         intensity=-1;
-        sistem=new cloud(context, 80);
+        sistem=new cloud(context, 110);
         sistem.isboxed(width, height);
-        sistem2=new cloud(context, 80);
-        sistem2.isboxed(width, height);
+        //sistem2=new cloud(context, 80);
+        //sistem2.isboxed(width, height);
         hole=new Atractor(1);
         lateral1=new Atractor(1);
         lateral2=new Atractor(1);
@@ -75,7 +75,7 @@ public class pruebaView extends View{
 
     protected void onDraw(Canvas canvas){
 
-        canvas.drawColor(0xFF000000);
+        canvas.drawColor(0xFFFFFFFF);
         //Random rnd=new Random();
         //hole.sentido=-rnd.nextFloat()-1;
 
@@ -83,15 +83,15 @@ public class pruebaView extends View{
         // particle.mostrar_dibujo(canvas,1);
         //hole.sentido=intensity;
         sistem.acelera_particulas(hole);
-        sistem2.acelera_particulas(hole);
+        //sistem2.acelera_particulas(hole);
         sistem.acelera_particulas(lateral1);
         sistem.acelera_particulas(lateral2);
-        sistem2.acelera_particulas(lateral3);
-        sistem2.acelera_particulas(lateral4);
+        sistem.acelera_particulas(lateral3);
+        sistem.acelera_particulas(lateral4);
         sistem.actualiza_particula();
         sistem.dibujaparticulas(canvas);
-        sistem2.actualiza_particula();
-        sistem2.dibujaparticulas(canvas);
+        //sistem2.actualiza_particula();
+        //sistem2.dibujaparticulas(canvas);
         update();
         invalidate();
 
