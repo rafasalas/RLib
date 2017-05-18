@@ -89,8 +89,8 @@ public class pruebaView extends View{
         //sistem2.acelera_particulas(hole);
         sistem.acelera_particulas(lateral1);
         sistem.acelera_particulas(lateral2);
-        sistem.acelera_particulas(lateral3);
-        sistem.acelera_particulas(lateral4);
+        //sistem.acelera_particulas(lateral3);
+        //sistem.acelera_particulas(lateral4);
         sistem.actualiza_particula();
         sistem.mostrar(canvas);
         //sistem2.actualiza_particula();
