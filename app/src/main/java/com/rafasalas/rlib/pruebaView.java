@@ -10,6 +10,7 @@ import android.view.View;
 import com.rafasalas.*;
 import com.rafasalas.rafalib.atractors.Atractor;
 import com.rafasalas.rafalib.composites.Mandala;
+import com.rafasalas.rafalib.composites.bezierChain;
 import com.rafasalas.rafalib.composites.cloud;
 import com.rafasalas.rafalib.composites.red;
 import com.rafasalas.rafalib.composites.sistema;
@@ -27,7 +28,8 @@ public class pruebaView extends View{
     Atractor hole, lateral1, lateral2, lateral3,lateral4;
     //Mandala mandy;
     PVector centro, part;
-    sistema sistem, sistem2;
+    //sistema sistem, sistem2;
+    bezierChain sistem;
     // red redecilla;
     //particulasimple particle;
 
@@ -51,8 +53,9 @@ public class pruebaView extends View{
         // redecilla. tresbolillo=true;
         //redecilla.masa_fija(10);
         intensity=-1;
-        sistem=new cloud(context, 110);
-        sistem.isboxed(width, height);
+        //sistem=new cloud(context, 110);
+        sistem=new bezierChain(width,height);
+        //sistem.isboxed(width, height);
         //sistem2=new cloud(context, 80);
         //sistem2.isboxed(width, height);
         hole=new Atractor(1);
@@ -89,7 +92,7 @@ public class pruebaView extends View{
         sistem.acelera_particulas(lateral3);
         sistem.acelera_particulas(lateral4);
         sistem.actualiza_particula();
-        sistem.dibujaparticulas(canvas);
+        sistem.mostrar(canvas);
         //sistem2.actualiza_particula();
         //sistem2.dibujaparticulas(canvas);
         update();
