@@ -29,7 +29,7 @@ public class pruebaView extends View{
     //Mandala mandy;
     PVector centro, part;
     //sistema sistem, sistem2;
-    bezierChain sistem;
+    bezierChain sistem, sistem2;
     // red redecilla;
     //particulasimple particle;
 
@@ -55,6 +55,7 @@ public class pruebaView extends View{
         intensity=-1;
         //sistem=new cloud(context, 110);
         sistem=new bezierChain(width,height);
+        sistem2=new bezierChain(width,height);
         //sistem.isboxed(width, height);
         //sistem2=new cloud(context, 80);
         //sistem2.isboxed(width, height);
@@ -86,13 +87,16 @@ public class pruebaView extends View{
         // particle.mostrar_dibujo(canvas,1);
         //hole.sentido=intensity;
         sistem.acelera_particulas(hole);
+        sistem2.acelera_particulas(hole);
         //sistem2.acelera_particulas(hole);
         sistem.acelera_particulas(lateral1);
         sistem.acelera_particulas(lateral2);
-        //sistem.acelera_particulas(lateral3);
-        //sistem.acelera_particulas(lateral4);
+        sistem2.acelera_particulas(lateral3);
+        sistem2.acelera_particulas(lateral4);
         sistem.actualiza_particula();
         sistem.mostrar(canvas);
+        sistem2.actualiza_particula();
+        sistem2.mostrar(canvas);
         //sistem2.actualiza_particula();
         //sistem2.dibujaparticulas(canvas);
         update();

@@ -30,8 +30,10 @@ public class bezierChain {
     float magbrowniano;
     public bezierChain(int width, int height){
         Random rnd=new Random();
-        nodes=28;
-        radius_link=20;
+        //nodes=28;
+        //radius_link=20;
+        nodes=50;
+        radius_link=100;
         masainicial=(rnd.nextFloat()*40)+10;
         origen=new PVector(rnd.nextInt (width),rnd.nextInt (height));
         links=new ArrayList<Mat_point>();
