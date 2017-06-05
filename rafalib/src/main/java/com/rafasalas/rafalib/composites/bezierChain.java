@@ -28,17 +28,19 @@ public class bezierChain {
     PVector browniano;
     boolean esbrowniano;
     float magbrowniano;
+    int r,g,b,a;
     public bezierChain(int width, int height){
         Random rnd=new Random();
         //nodes=28;
         //radius_link=20;
         nodes=10;
-        radius_link=150;
+        radius_link=200;
         masainicial=(rnd.nextFloat()*40)+10;
         origen=new PVector(rnd.nextInt (width),rnd.nextInt (height));
         links=new ArrayList<Mat_point>();
         esbrowniano=true;
         magbrowniano=.9f;
+
         float [] masses=new float [nodes];
         for(int i=0; i<nodes; i++){
 
@@ -46,6 +48,10 @@ public class bezierChain {
             velocidadinicial=new PVector ((rnd.nextFloat ()*5)+5,(rnd.nextFloat ()*5)+5);
             //masses[i]=masaparticula*((random(10,100))*0.01);
             masses[i]=masainicial/((i+1));
+            r=rnd.nextInt(255);
+            g=rnd.nextInt(255);
+            b=rnd.nextInt(255);
+            a=rnd.nextInt(180-110)+110;
             links.add(new Mat_point(origen,  masses[i]));
 
 
@@ -53,6 +59,7 @@ public class bezierChain {
             links.get(i).limite=10;
             links.get(i).boxed(true, width, height);
             links.get(i).velocidad=velocidadinicial;
+
 
         }
     }
@@ -86,22 +93,25 @@ public class bezierChain {
             Random rnd=new Random();
         Paint paint;
         paint = new Paint();
-        paint.setARGB(rnd.nextInt(255-110)+110,rnd.nextInt(255),rnd.nextInt(255),rnd.nextInt(255));
+        //paint.setARGB(rnd.nextInt(255-110)+110,rnd.nextInt(255),rnd.nextInt(255),rnd.nextInt(255));
+            paint.setARGB(a,r,g,b);
         paint.setStyle(Paint.Style.FILL);
-           paint.setStrokeWidth(1.0f);
+           paint.setStrokeWidth(2.0f);
             paint.setAntiAlias(true);
             Path p = new Path();
             Mat_point l=links.get(0);
             p.reset();
             p.moveTo(l.posicion.x,l.posicion.y);
-            for (int i = 1; i < links.size()-2; i=i+3) {
+            for (int i = 1; i < links.size()-1; i=i+3) {
                 Mat_point l1 = links.get(i);
                 Mat_point l2 = links.get(i+1);
                 Mat_point l3 =  links.get(i+2);
+                if (i==links.size()-2){l3= links.get(1);}
                 //p.quadTo(l1.posicion.x, l1.posicion.y, l2.posicion.x,l2.posicion.y);
                 p.cubicTo(l1.posicion.x, l1.posicion.y, l2.posicion.x,l2.posicion.y, l3.posicion.x,l3.posicion.y);
                 //p.moveTo(l3.posicion.x,l3.posicion.y);
                     }
+                    p.close();
             canvas.drawPath(p,paint);
     }
 

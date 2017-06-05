@@ -57,8 +57,8 @@ public class pruebaView extends View{
         //sistem=new cloud(context, 110);
         //sistem=new bezierChain(width,height);
         //sistem2=new bezierChain(width,height);
-        sistem=new bezierBundle(width,height,5);
-        sistem2=new bezierBundle(width,height,5);
+        sistem=new bezierBundle(width,height,6);
+        sistem2=new bezierBundle(width,height,6);
         //sistem.isboxed(width, height);
         //sistem2=new cloud(context, 80);
         //sistem2.isboxed(width, height);
