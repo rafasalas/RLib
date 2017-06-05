@@ -32,8 +32,8 @@ public class bezierChain {
         Random rnd=new Random();
         //nodes=28;
         //radius_link=20;
-        nodes=50;
-        radius_link=100;
+        nodes=10;
+        radius_link=150;
         masainicial=(rnd.nextFloat()*40)+10;
         origen=new PVector(rnd.nextInt (width),rnd.nextInt (height));
         links=new ArrayList<Mat_point>();
@@ -83,10 +83,11 @@ public class bezierChain {
         }
     }
         public void mostrar(Canvas canvas){
+            Random rnd=new Random();
         Paint paint;
         paint = new Paint();
-        paint.setARGB(255,0,0,0);
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setARGB(rnd.nextInt(255-110)+110,rnd.nextInt(255),rnd.nextInt(255),rnd.nextInt(255));
+        paint.setStyle(Paint.Style.FILL);
            paint.setStrokeWidth(1.0f);
             paint.setAntiAlias(true);
             Path p = new Path();

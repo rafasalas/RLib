@@ -15,7 +15,7 @@ import com.rafasalas.rafalib.composites.cloud;
 import com.rafasalas.rafalib.composites.red;
 import com.rafasalas.rafalib.composites.sistema;
 import com.rafasalas.rafalib.particles.particulasimple;
-
+import com.rafasalas.rafalib.composites.bezierBundle;
 import java.util.Random;
 
 import processing.core.PVector;
@@ -29,7 +29,8 @@ public class pruebaView extends View{
     //Mandala mandy;
     PVector centro, part;
     //sistema sistem, sistem2;
-    bezierChain sistem, sistem2;
+    //bezierChain sistem, sistem2;
+    bezierBundle sistem, sistem2;
     // red redecilla;
     //particulasimple particle;
 
@@ -54,8 +55,10 @@ public class pruebaView extends View{
         //redecilla.masa_fija(10);
         intensity=-1;
         //sistem=new cloud(context, 110);
-        sistem=new bezierChain(width,height);
-        sistem2=new bezierChain(width,height);
+        //sistem=new bezierChain(width,height);
+        //sistem2=new bezierChain(width,height);
+        sistem=new bezierBundle(width,height,5);
+        sistem2=new bezierBundle(width,height,5);
         //sistem.isboxed(width, height);
         //sistem2=new cloud(context, 80);
         //sistem2.isboxed(width, height);
@@ -86,16 +89,16 @@ public class pruebaView extends View{
         //redecilla.mostrar_dibujo(canvas, 150);
         // particle.mostrar_dibujo(canvas,1);
         //hole.sentido=intensity;
-        sistem.acelera_particulas(hole);
-        sistem2.acelera_particulas(hole);
+        sistem.acelerador(hole);
+        sistem2.acelerador(hole);
         //sistem2.acelera_particulas(hole);
-        sistem.acelera_particulas(lateral1);
-        sistem.acelera_particulas(lateral2);
-        sistem2.acelera_particulas(lateral3);
-        sistem2.acelera_particulas(lateral4);
-        sistem.actualiza_particula();
+        sistem.acelerador(lateral1);
+        sistem.acelerador(lateral2);
+        sistem2.acelerador(lateral3);
+        sistem2.acelerador(lateral4);
+        sistem.actualizar();
         sistem.mostrar(canvas);
-        sistem2.actualiza_particula();
+        sistem2.actualizar();
         sistem2.mostrar(canvas);
         //sistem2.actualiza_particula();
         //sistem2.dibujaparticulas(canvas);
