@@ -52,7 +52,8 @@ public class MainActivity extends Activity {
                 for (int i = 0; i < bytes.length; i++) {
                     sum=sum+(float)bytes[i];
                 }
-                if (sum<-16383){sum=1;}else{sum=sum/1000;}
+                //if (sum<-16383){sum=1;}else{sum=sum/1000;}
+                if (sum<-12000 || sum>12000){sum=1;}else{sum=sum/1000;}
                 prueba.hole.sentido=-1-sum;
                 prueba.lateral1.sentido=-0.5f*sum;
                 prueba.lateral2.sentido=-0.5f*sum;

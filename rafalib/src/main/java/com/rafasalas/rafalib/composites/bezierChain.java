@@ -35,7 +35,7 @@ public class bezierChain {
         //radius_link=20;
         nodes=10;
         radius_link=200;
-        masainicial=(rnd.nextFloat()*40)+10;
+        masainicial=(rnd.nextFloat()*30)+15;
         origen=new PVector(rnd.nextInt (width),rnd.nextInt (height));
         links=new ArrayList<Mat_point>();
         esbrowniano=true;
@@ -51,7 +51,7 @@ public class bezierChain {
             r=rnd.nextInt(255);
             g=rnd.nextInt(255);
             b=rnd.nextInt(255);
-            a=rnd.nextInt(180-110)+110;
+            a=rnd.nextInt(130-100)+100;
             links.add(new Mat_point(origen,  masses[i]));
 
 
