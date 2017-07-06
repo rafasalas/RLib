@@ -1,6 +1,7 @@
 package com.rafasalas.rafalib.composites;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 
@@ -29,13 +30,15 @@ public class bezierChain {
     boolean esbrowniano;
     float magbrowniano;
     int r,g,b,a;
-    public bezierChain(int width, int height){
+    public bezierChain(int width, int height, float init_mass){
         Random rnd=new Random();
         //nodes=28;
         //radius_link=20;
-        nodes=10;
+        masainicial=0;
+        nodes=7;
         radius_link=200;
-        masainicial=(rnd.nextFloat()*30)+15;
+       //masainicial=(rnd.nextFloat()*3)+1;
+        if (init_mass!=0) {masainicial=init_mass;}
         origen=new PVector(rnd.nextInt (width),rnd.nextInt (height));
         links=new ArrayList<Mat_point>();
         esbrowniano=true;
@@ -47,7 +50,7 @@ public class bezierChain {
            // if (i==0){velocidadinicial=new PVector (rnd.nextFloat ()*5,rnd.nextFloat ()*5);} else {velocidadinicial=new PVector (0,0);}
             velocidadinicial=new PVector ((rnd.nextFloat ()*5)+5,(rnd.nextFloat ()*5)+5);
             //masses[i]=masaparticula*((random(10,100))*0.01);
-            masses[i]=masainicial/((i+1));
+            masses[i]=masainicial*((i+1));
             r=rnd.nextInt(255);
             g=rnd.nextInt(255);
             b=rnd.nextInt(255);
@@ -115,7 +118,25 @@ public class bezierChain {
             canvas.drawPath(p,paint);
     }
 
+public void colorize_random(){
+                                Random rnd=new Random();
+                                r=rnd.nextInt(255);
+                                g=rnd.nextInt(255);
+                                b=rnd.nextInt(255);
 
+                            }
+public void colorize_palette(int h, int s, int v){
+                            Random rnd=new Random();
+                            float hcomp;
 
+                            float[] hsv = new float[3];
+                            if (h>180) {hsv[0]=h-180;} else {hsv[0]=180-h;}
+                            hsv[1]=s;
+                            hsv[2]=rnd.nextFloat()*100;
+                            int outputColor = Color.HSVToColor(hsv);
+                            r=Color.red(outputColor);
+                            g=Color.green(outputColor);
+                            b=Color.blue(outputColor);
+                            }
 
 }

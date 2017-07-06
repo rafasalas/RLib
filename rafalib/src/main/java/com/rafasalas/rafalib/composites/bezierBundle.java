@@ -1,11 +1,13 @@
 package com.rafasalas.rafalib.composites;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 import com.rafasalas.rafalib.atractors.Atractor;
 import com.rafasalas.rafalib.particles.Mat_point;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import processing.core.PVector;
 
@@ -20,7 +22,7 @@ public class bezierBundle {
     public bezierBundle(int width, int height, int numero){
         mChains=new ArrayList<bezierChain>();
         for (int i=0;i<numero; i++){
-            mChains.add(new bezierChain(width,height));
+            mChains.add(new bezierChain(width,height, (float)i));
         }
     }
     public void acelerador (Atractor atractor){
@@ -44,7 +46,19 @@ public class bezierBundle {
         }
     }
 
+    public void colorize_random(){
+        for (int i = 0; i < mChains.size(); i++) {
+            bezierChain p = mChains.get(i);
+            p.colorize_random();
+        }
 
+    }
+    public void colorize_palette(int h, int s, int v){
+        for (int i = 0; i < mChains.size(); i++) {
+            bezierChain p = mChains.get(i);
+            p.colorize_palette(h, s, v);
+        }
+    }
 
 
 }
