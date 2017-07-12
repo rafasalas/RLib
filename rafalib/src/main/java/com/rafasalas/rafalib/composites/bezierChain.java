@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.Log;
 
 import com.rafasalas.rafalib.atractors.Atractor;
 import com.rafasalas.rafalib.particles.Mat_point;
@@ -125,15 +126,23 @@ public void colorize_random(){
                                 b=rnd.nextInt(255);
 
                             }
-public void colorize_palette(int h, int s, int v){
+public void colorize_palette(float[] hsv){
                             Random rnd=new Random();
-                            float hcomp;
+                            float[] chocho={0,0,0};
+                            float hcomp=0;
 
-                            float[] hsv = new float[3];
-                            if (h>180) {hsv[0]=h-180;} else {hsv[0]=180-h;}
-                            hsv[1]=s;
-                            hsv[2]=rnd.nextFloat()*100;
-                            int outputColor = Color.HSVToColor(hsv);
+   // Log.d("hsv_antes", Float.toString(hsv[0]));
+                            if (hsv[0]>180) {hcomp=hsv[0]-180;} else {hcomp=180+hsv[0];}
+    //Log.d("hsv_despues", Float.toString(hsv[0]));
+                            hcomp=hcomp+rnd.nextInt(90)-45;
+                            if(hcomp>360){hcomp=hcomp-360;}
+                            if(hcomp<0){hcomp=360+hcomp;}
+
+                            chocho[0]=hcomp;
+                            chocho[1]=hsv[1];
+                            chocho[2]=rnd.nextFloat()*100;
+                            //Log.d("brillo", chocho[2]+" ");
+                            int outputColor = Color.HSVToColor(chocho);
                             r=Color.red(outputColor);
                             g=Color.green(outputColor);
                             b=Color.blue(outputColor);
