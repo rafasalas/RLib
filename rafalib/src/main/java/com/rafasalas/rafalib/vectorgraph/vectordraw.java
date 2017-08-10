@@ -12,6 +12,8 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.VectorDrawable;
 
+import java.util.Random;
+
 
 public class vectordraw {
    public VectorDrawable drawable;
@@ -127,4 +129,18 @@ public class vectordraw {
         drawable.setColorFilter(color.argb(opacity, r, g, b), PorterDuff.Mode.MULTIPLY);
 
     }
+    public void colorize(int opacity, float[] hsv){
+        Random rnd=new Random();
+        Color color = new Color();
+
+        //Log.d("brillo", chocho[2]+" ");
+        int outputColor = Color.HSVToColor(hsv);
+        int r=Color.red(outputColor);
+        int g=Color.green(outputColor);
+        int b=Color.blue(outputColor);
+        //drawable.setColorFilter(color.argb(opacity, r, g, b), PorterDuff.Mode.MULTIPLY);
+        drawable.setColorFilter(color.argb(255, r, g, b), PorterDuff.Mode.SRC_ATOP);
+        drawable.setAlpha(opacity);
+    }
+
 }
